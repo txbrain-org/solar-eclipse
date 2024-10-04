@@ -4,7 +4,7 @@ Create meson.builds for the following subprojects:
 
 - [ ] build
 - [ ] libgpu-commands - will need nvidia-cuda
-- [ ] libplinkio 
+- [x] libplinkio 
 - [x] libRicVolume
-- [ ] libsafe
+- [x] libsafe
 - [ ] libtcl8.4

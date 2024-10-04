@@ -1,7 +1,12 @@
-## https://www.gnu.org/prep/standards/standards.html#Makefile-Conventions
 ## https://sourceware.org/autobook/autobook/autobook_25.html#Generated-Output-Files
-## @see: 7.2.5 Variables for Installation Directories
+##
+## https://www.gnu.org/prep/standards/standards.html#Makefile-Conventions
+##   - 7.2.5 Variables for Installation Directories
+##   - 7.2.6 Standard Targets for Users
+## 
 ## https://just.systems/man/en/functions.html
+
+set shell := ["bash", "-c"]
 
 # ANSI color codes
 green := "\\033[32m"
@@ -17,9 +22,14 @@ builddir := 'builddir'
 srcdir := 'src'
 target := 'solarmain'
 
-# meson compile -C builddir --clean
-clean:
-  meson compile -C {{builddir}} --clean
+# clean [all]
+clean param:
+  if [[ {{param}} == 'all' ]]; then \
+    meson compile -C {{builddir}} --clean; \
+    meson setup --wipe {{builddir}}; \
+  else \
+    meson compile -C {{builddir}} --clean; \
+  fi 
 
 # meson compile -C builddir
 build:
@@ -32,4 +42,4 @@ run:
   @printf "%s\n"
 
 # meson build && meson run
-test: build run
+test: (clean "all") build run
