@@ -76,6 +76,7 @@ extern "C" int PedigreeCmd (ClientData clientData, Tcl_Interp *interp,
             }
             delete_ped_state();
             Phenotypes::reset();
+            Pedigree::SexVar(0);
         }
 
 
@@ -668,6 +669,7 @@ void Pedigree::delete_marker ()
 
 int Pedigree::HasSex()
 {
+    /*
     try {
 	if (!loadedPed()) {
 	    return 0;
@@ -675,6 +677,6 @@ int Pedigree::HasSex()
     }
     catch (Safe_Error_Return& ser) {
 	return 0;
-    }
+    }*/
     return Pedigree::_Has_Sex;
 }

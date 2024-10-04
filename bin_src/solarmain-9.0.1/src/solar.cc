@@ -214,16 +214,17 @@ DECL(gwaCmd);
 DECL (nifti_to_csv_command);
 DECL (sporadicNormalizeCmd);
 DECL (annotationCmd);
-DECL(GPU_GWAS_Cmd);
+//DECL(GPU_GWAS_Cmd);
 DECL(runfphiCmd);
-DECL(gpufphiCmd);
+//DECL(gpufphiCmd);
 DECL(rviCmd);
 DECL(create_evdCmd);
-DECL(gpupedfromsnpsCmd);
+//DECL(gpupedfromsnpsCmd);
 DECL(calculate_loci_frequencies_command);
-//DECL(pedigree_power_command);
+DECL(pedigree_power_command);
 DECL(run_genetic_correlation);
 DECL(transfer_pedigree_filename);
+//DECL(print_phi2);
 int validate_solar (Tcl_Interp *interp);
 
 extern void setup_functions ();
@@ -317,19 +318,20 @@ extern "C" int Solar_Init (Tcl_Interp *interp)
     add_solar_command ("pedifromsnps", pedfromsnpsCmd, interp);
     add_solar_command ("rvi", rviCmd, interp);
     add_solar_command ("fphi", runfphiCmd, interp);
-    add_solar_command ("gpu_fphi", gpufphiCmd , interp);
+//    add_solar_command ("gpu_fphi", gpufphiCmd , interp);
     add_solar_command ("gwas", gwaCmd, interp);
-    add_solar_command ("gpu_gwas", GPU_GWAS_Cmd, interp);
+//    add_solar_command ("gpu_gwas", GPU_GWAS_Cmd, interp);
 
     add_solar_command ("nifti_to_csv", nifti_to_csv_command, interp);
     add_solar_command("sporadic_normalize", sporadicNormalizeCmd, interp);
     add_solar_command("annotate_gwas", annotationCmd, interp);
     add_solar_command("create_evd_data", create_evdCmd,interp);
-    add_solar_command("gpu_pedifromsnps", gpupedfromsnpsCmd,interp);
+ //   add_solar_command("gpu_pedifromsnps", gpupedfromsnpsCmd,interp);
     add_solar_command("plink_freq",calculate_loci_frequencies_command,interp);
-   // add_solar_command("pedigree_power",pedigree_power_command,interp);
+    add_solar_command("pedigree_power",pedigree_power_command,interp);
     add_solar_command("gen_corr",run_genetic_correlation,interp);
     add_solar_command("ped_filename",transfer_pedigree_filename,interp);
+//    add_solar_command("print_phi2", print_phi2, interp);
 //  internal initializations (not subject to error)
 
     setup_functions ();
