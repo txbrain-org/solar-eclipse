@@ -13,18 +13,33 @@
 #include <string>
 #include <vector>
 #include <exception>
-class Solar_Trait_Reader_Exception : virtual public std::exception{
-protected:
-    const char * error_message;
+#include <stdexcept>
+
+extern bool use_blank_ped;
+class Eigen_Data_Exception : public std::runtime_error {
+
 public:
-    Solar_Trait_Reader_Exception(const  char * msg): error_message(msg){
+    Eigen_Data_Exception(const std::string  & msg): std::runtime_error(msg) {
 
     }
-    virtual ~Solar_Trait_Reader_Exception() throw() {}
-    virtual const char * what() const throw()
+   /*
+    virtual const char * what() const throw() 
+    
+    {
+        return message.c_str();
+    }*/
+};
+class Solar_Trait_Reader_Exception :  public std::runtime_error {
+
+public:
+    Solar_Trait_Reader_Exception(const std::string  &  msg): std::runtime_error(msg)  {
+
+    }
+   /* virtual ~Solar_Trait_Reader_Exception() throw() {}
+    virtual const char * what() const throw() 
 	{
-		return error_message;
-	}
+		return message.c_str();
+	}*/
 };
 void load_phi2_matrix(Tcl_Interp * interp);
 class Eigen_Data{
@@ -40,6 +55,7 @@ private:
     size_t n_phenotypes;
     size_t n_subjects;
 public:
+    bool contains_shared_id_set;
     inline double * get_phenotype_column(const size_t index) const {return (index < n_phenotypes) ? &phenotype_buffer[index*n_subjects] : 0;}
     inline std::string get_trait_name(const size_t index) { return  (index < n_phenotypes) ? trait_names[index] : std::string("");}
     inline double * get_eigenvalues() const {return eigenvalues;};

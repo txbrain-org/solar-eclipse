@@ -79,7 +79,7 @@ double ccsearch (const char* outfilename, int get_who, bool sampledata)
     if_any_discrete = 0;
     const int conout = 6;
     int mtrait = MAX_TRAITS;
-    int mxtwin = 32000;
+    int mxtwin = 1000000;
     double absent = MISSING_PHENOTYPE;
     double conv = Option::get_double ("Conv");
     int nconv = Option::get_int ("NConv");

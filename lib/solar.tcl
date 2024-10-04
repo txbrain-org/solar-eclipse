@@ -20408,28 +20408,29 @@ proc solarversion {} {
 }
 
 proc solar_tcl_startup {} {
- global Solar_Batch
- if {!$Solar_Batch} {
+  global Solar_Batch
+  if {!$Solar_Batch} {
      catch {
      puts "\nSOLAR Eclipse version [solar_tcl_version], last updated on [solar_up_date], [solar_up_year]"
-     puts "Developed at Maryland Psychiatric Research Center,"
-     puts "University of Maryland School of Medicine, Baltimore."
+     puts "Louis A. Faillace, MD, Department of Psychiatry and Behavioral Sciences,"
+     puts "McGovern Medical School at UTHealth Houston."
 
-  puts "Visit our documentation and tutorial website www.solar-eclipse-genetics.org"
-  puts "Our download page https://www.nitrc.org/projects/se_linux"
-  puts "Our github page https://github.com/brian09/solar-eclipse"
-  puts "For questions email: pkochunov@gmail.com"
-  puts "Enter help for help, exit to exit, doc to browse documentation."
-  puts "The software development is supported by NIH grant RO1EB015611"
-  puts  "from The National Institute for Biomedical Imaging and Bioengineering."
-  puts "Enter cite to see how to cite this software.\n" 
-  global Solar_Gotcl
-  if {[llength $Solar_Gotcl]} {
-      puts "Using solar.tcl in $Solar_Gotcl"
+    puts "Visit our documentation and tutorial website www.solar-eclipse-genetics.org"
+    puts "Our download page https://www.nitrc.org/projects/se_linux"
+    puts "Our github page https://github.com/txbrain-org/solar-eclipse"
+    puts "For questions email: pkochunov@gmail.com"
+    puts "Enter help for help, exit to exit, doc to browse documentation."
+    puts "The software development is supported by NIH grant RO1EB015611"
+    puts  "from The National Institute for Biomedical Imaging and Bioengineering."
+    puts "Enter cite to see how to cite this software.\n" 
+    global Solar_Gotcl
+    if {[llength $Solar_Gotcl]} {
+        puts "Using solar.tcl in $Solar_Gotcl"
+    }
   }
- }
+  }
 }
-}
+
 
 proc check_version_compatibility {} {
     if {![string compare 9.0.1 \

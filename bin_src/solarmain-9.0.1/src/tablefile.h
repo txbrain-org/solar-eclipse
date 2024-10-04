@@ -3,7 +3,7 @@
 
 #define MAX_REC_BYTES 800000
 #define MAX_REC_FIELDS 40000
-#define SHORT_NAME_LENGTH 6
+#define SHORT_NAME_LENGTH 8
 
 
 /*

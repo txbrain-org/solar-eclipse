@@ -1990,8 +1990,7 @@ static const char * run_gwas_screen_list(const char * phenotype_filename, const 
 		try{
 			trait_reader = new Solar_Trait_Reader(phenotype_filename,evd_data_filename, trait_list);
 		}catch(Solar_Trait_Reader_Exception & e){
-			const char * error_message = e.what();
-			return error_message;
+			return e.what();
 		}catch(...){
 			return "Unknown error occurred reading phenotype or pedigree data";
 		}
@@ -2125,7 +2124,7 @@ static const char * run_gwas_screen_list(const char * phenotype_filename, const 
 	}		
 	
 }
-static const char * run_gwas_list(const char * phenotype_filename, const char * list_filename, const char * evd_data_filename, const char * plink_filename, const bool fix_missing, const unsigned precision, const bool verbose, const bool use_covariates, unsigned n_permutations = 0, unsigned batch_size = GWAS_BATCH_SIZE){
+static const char *   run_gwas_list(const char * phenotype_filename, const char * list_filename, const char * evd_data_filename, const char * plink_filename, const bool fix_missing, const unsigned precision, const bool verbose, const bool use_covariates, unsigned n_permutations = 0, unsigned batch_size = GWAS_BATCH_SIZE){
 	vector<string> trait_list;// = read_trait_list(list_filename);
 	if(list_filename) {
 		trait_list = read_trait_list(list_filename);
@@ -2163,7 +2162,7 @@ static const char * run_gwas_list(const char * phenotype_filename, const char * 
     	}
     	const char * error_message = 0;
     	error_message = load_covariate_terms(phenotype_filename, raw_covariate_term_matrix, covariate_terms, covariate_term_ids);
-    		
+    	
     	if(error_message) return error_message;
     	
     }
@@ -2209,8 +2208,7 @@ static const char * run_gwas_list(const char * phenotype_filename, const char * 
 		try{
 			trait_reader = new Solar_Trait_Reader(phenotype_filename,evd_data_filename, trait_list);
 		}catch(Solar_Trait_Reader_Exception & e){
-			const char * error_message = e.what();
-			return error_message;
+			return e.what();
 		}catch(...){
 			return "Unknown error occurred reading phenotype or pedigree data";
 		}
@@ -2448,7 +2446,7 @@ static const char * run_gwas_list(const char * phenotype_filename, const char * 
 	}
 	//delete [] iteration_count;
 	delete trait_reader;
-
+    
 	return 0;
 }
 static Eigen::VectorXd create_snp_vector(vector<string> ids, vector<string> snp_ids, vector<double> snp_values){
@@ -2690,7 +2688,6 @@ extern "C" int gwaCmd(ClientData clientData, Tcl_Interp *interp,
 		
 		
 	if(error){
-		//cout << error << endl;
 		RESULT_BUF(error);
 		return TCL_ERROR;
 	}
