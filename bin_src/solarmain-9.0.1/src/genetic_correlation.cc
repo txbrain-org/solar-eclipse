@@ -578,6 +578,164 @@ static void calculate_initial_parameters(Eigen::VectorXd Y_one, Eigen::VectorXd 
     }    
 
 }*/
+static void calculate_parameters_fast_two(Eigen::VectorXd Y_one, Eigen::VectorXd Y_two, Eigen::MatrixXd covariate_matrix, Eigen::VectorXd lambda, Eigen::VectorXd & parameters, Eigen::VectorXd & beta, Eigen::VectorXd & T_wald){
+
+
+    Eigen::MatrixXd aux = Eigen::MatrixXd::Ones(lambda.rows(), 2);
+    Eigen::MatrixXd other_aux = Eigen::MatrixXd::Zero(lambda.rows()*3, 6);
+    Eigen::MatrixXd all_aux = Eigen::MatrixXd::Zero(lambda.rows()*2, 6);
+    Eigen::MatrixXd var_aux = Eigen::MatrixXd::Zero(lambda.rows()*2, 4);
+    aux.col(1) = lambda;
+
+    Eigen::VectorXd big_Y(Y_one.rows()*2);
+
+    Eigen::MatrixXd all_covariate_matrix = Eigen::MatrixXd::Zero(lambda.rows()*2, covariate_matrix.cols()*2);
+
+    for(int col = 0; col < covariate_matrix.cols(); col++){
+        for(int row = 0; row < covariate_matrix.rows(); row++){
+            all_covariate_matrix(row, col) = covariate_matrix(row, col);
+            all_covariate_matrix(row + covariate_matrix.rows(), col + covariate_matrix.cols()) = covariate_matrix(row, col);
+        }
+    }
+
+
+   
+    for(int i = 0 ; i < Y_one.rows() ; i++){
+        big_Y(i) = Y_one(i);
+        big_Y(i + Y_one.rows()) = Y_two(i);
+
+        var_aux(i, 0) = 1.0;
+        var_aux(i, 1) = lambda(i);
+        var_aux(i + Y_one.rows(), 2) = 1.0;
+        var_aux(i + Y_one.rows(), 3) = lambda(i);
+
+        all_aux(i, 0) = 1.0;
+        all_aux(i, 1) = lambda(i);
+        all_aux(i + Y_one.rows(), 2) = 1.0;
+        all_aux(i + Y_one.rows(), 3) = lambda(i);
+        all_aux(i, 4) = all_aux(i + Y_one.rows(),4) = 1.0;
+        all_aux(i, 5) = all_aux(i + Y_one.rows(), 5) = lambda(i);
+
+        other_aux(i, 0) = 1.0;
+        other_aux(i, 1) = lambda(i);
+        other_aux(i + Y_one.rows(), 2) = 1.0;
+        other_aux(i + Y_one.rows(), 3) = lambda(i);
+        other_aux(i + 2*Y_one.rows(),4) = 1.0;
+        other_aux(i + 2*Y_one.rows(), 5) = lambda(i);
+    }
+
+    Eigen::VectorXd all_beta = (all_covariate_matrix.transpose()*all_covariate_matrix).inverse()*all_covariate_matrix.transpose()*big_Y;
+
+    Eigen::VectorXd big_residual = big_Y - all_covariate_matrix*all_beta;
+
+    Eigen::VectorXd all_residual_squared(Y_one.rows()*2);
+    all_residual_squared = big_residual.cwiseAbs2();
+    Eigen::VectorXd covar_residual(Y_one.rows());
+    Eigen::VectorXd covar(Y_one.rows());
+    for(int i = 0; i < Y_one.rows(); i++){
+        //all_residual_squared(i) = big_residual(i)*big_residual(i);
+       //all_residual_squared(i + Y_one.rows()) = pow(big_residual(i + Y_one.rows()), 2.0);
+        covar_residual(i) = big_residual(i)*big_residual(i + Y_one.rows());
+      //  all_residual_squared(i + 2*Y_one.rows()) = big_residual(i)*big_residual(Y_one.rows() + i);
+    }
+    
+    //Eigen::VectorXd theta = (other_aux.transpose()*other_aux).inverse()*other_aux.transpose()*all_residual_squared;
+    Eigen::VectorXd var_theta = (var_aux.transpose()*var_aux).inverse()*var_aux.transpose()*all_residual_squared;
+    Eigen::MatrixXd var_omega = Eigen::MatrixXd::Zero(Y_one.rows()*2, Y_one.rows()*2);
+
+    for(int row = 0; row < Y_one.rows(); row++){
+        var_omega(row, row) = (var_theta(0) + var_theta(1)*lambda(row));
+        //big_Omega(row, row + Y_one.rows()) = big_Omega(row + Y_one.rows(), row) = rho(0) + rho(1)*lambda(row);
+        var_omega(row + Y_one.rows(), row + Y_one.rows()) = (var_theta(2) + var_theta(3)*lambda(row));
+    }  
+   // var_omega = var_omega.inverse();
+    var_omega = var_omega.inverse();
+
+    all_beta = (all_covariate_matrix.transpose()*var_omega*all_covariate_matrix).inverse()*all_covariate_matrix.transpose()*var_omega*big_Y;
+
+    big_residual = big_Y - all_covariate_matrix*all_beta;
+    all_residual_squared = big_residual.cwiseAbs2();
+//covar_residual(Y_one.rows());
+//    Eigen::VectorXd covar(Y_one.rows());
+    for(int i = 0; i < Y_one.rows(); i++){
+       // all_residual_squared(i) = big_residual(i)*big_residual(i);
+       // all_residual_squared(i + Y_one.rows()) = pow(big_residual(i + Y_one.rows()), 2.0);
+        covar_residual(i) = big_residual(i)*big_residual(i + Y_one.rows());
+      //  all_residual_squared(i + 2*Y_one.rows()) = big_residual(i)*big_residual(Y_one.rows() + i);
+    }
+    var_omega = var_omega.cwiseAbs2();
+    var_theta = (var_aux.transpose()*var_omega*var_aux).inverse()*var_aux.transpose()*var_omega*all_residual_squared;
+
+    Eigen::VectorXd covar_theta(2);
+    covar_theta(0) = sqrt(var_theta(0)*var_theta(2));
+    covar_theta(1) = sqrt(var_theta(1)*var_theta(3));
+    Eigen::MatrixXd covar_omega = (aux*covar_theta).cwiseInverse().cwiseAbs2().asDiagonal();
+    Eigen::VectorXd rho = (aux.transpose()*covar_omega*aux).inverse()*aux.transpose()*covar_omega*covar_residual;
+    double h2r_one = var_theta(1)/(var_theta(1) + var_theta(0));
+    double h2r_two = var_theta(3)/(var_theta(3) + var_theta(2));
+    double rhog = rho(1)/sqrt(var_theta(1)*var_theta(3));
+    double rhoe = rho(0)/sqrt(var_theta(0)*var_theta(2));
+    cout << "h2r_one: "  << h2r_one << endl;
+    cout << "h2r_two: "  << h2r_two << endl;
+    cout << "rhog: "  << rhog << endl;
+    cout << "rhoe: "  << rhoe << endl;    
+
+    Eigen::MatrixXd big_Omega = Eigen::MatrixXd::Zero(Y_one.rows()*2, Y_one.rows()*2);
+    Eigen::VectorXd omega_one_one = var_theta(0)*Eigen::VectorXd::Ones(Y_one.rows()) + var_theta(1)*lambda;
+    Eigen::VectorXd omega_one_two = rho(0)*Eigen::VectorXd::Ones(Y_one.rows()) + rho(1)*lambda;
+    Eigen::VectorXd omega_two_two = var_theta(2)*Eigen::VectorXd::Ones(Y_one.rows()) + var_theta(3)*lambda;
+    Eigen::VectorXd det = omega_one_one.cwiseProduct(omega_two_two) - omega_one_two.cwiseAbs2();
+    Eigen::VectorXd omega_one_one_inverse  = omega_two_two.cwiseProduct(det.cwiseInverse());// var_theta(0)*Eigen::VectorXd::Ones(Y_one.rows()) + var_theta(1)*lambda;
+    Eigen::VectorXd omega_one_two_inverse =  -omega_one_two.cwiseProduct(det.cwiseInverse());//rho(0)*Eigen::VectorXd::Ones(Y_one.rows()) + rho(1)*lambda;
+    Eigen::VectorXd omega_two_two_inverse = omega_one_one.cwiseProduct(det.cwiseInverse()); //var_theta(2)*Eigen::VectorXd::Ones(Y_one.rows()) + var_theta(3)*lambda;    
+    for(int row = 0; row < Y_one.rows(); row++){
+        big_Omega(row, row) = omega_one_one_inverse(row);///det(row);
+        big_Omega(row + Y_one.rows(), row) = big_Omega(row, row + Y_one.rows()) = omega_one_two_inverse(row);// big_Omega(row + Y_one.rows(), row) = rho(0) + rho(1)*lambda(row);
+        big_Omega(row + Y_one.rows(), row + Y_one.rows()) = omega_two_two_inverse(row);// var_theta(2) + var_theta(3)*lambda(row);
+    }
+    Eigen::MatrixXd big_Omega_inverse = big_Omega;
+
+    Eigen::VectorXd next_beta = (all_covariate_matrix.transpose()*big_Omega_inverse*all_covariate_matrix).inverse()*all_covariate_matrix.transpose()*big_Omega_inverse*big_Y;
+
+    big_residual = big_Y - all_covariate_matrix*next_beta;
+    all_residual_squared = big_residual.cwiseAbs2();
+    //all_residual_squared.resize(2*Y_one.rows());
+    for(int i = 0; i < Y_one.rows(); i++){
+        //all_residual_squared(i) = big_residual(i)*big_residual(i);
+        //all_residual_squared(i + Y_one.rows()) = pow(big_residual(i + Y_one.rows()), 2.0);
+        //all_residual_squared(i + 2*Y_one.rows()) = big_residual(i)*big_residual(Y_one.rows() + i);
+        covar_residual(i) = big_residual(i)*big_residual(i + Y_one.rows());
+    }
+    det = omega_one_one_inverse.cwiseProduct(omega_two_two_inverse) - omega_one_two_inverse.cwiseAbs2();
+    Eigen::VectorXd omega_one_one_inverse_inverse  = omega_two_two_inverse.cwiseProduct(det.cwiseInverse());// var_theta(0)*Eigen::VectorXd::Ones(Y_one.rows()) + var_theta(1)*lambda;
+    Eigen::VectorXd omega_one_two_inverse_inverse =  -omega_one_two_inverse.cwiseProduct(det.cwiseInverse());//rho(0)*Eigen::VectorXd::Ones(Y_one.rows()) + rho(1)*lambda;
+    Eigen::VectorXd omega_two_two_inverse_inverse = omega_one_one_inverse.cwiseProduct(det.cwiseInverse());    
+    for(int row = 0; row < Y_one.rows(); row++){
+        big_Omega(row, row) = omega_one_one_inverse_inverse(row);///det(row);
+        big_Omega(row + Y_one.rows(), row) = big_Omega(row, row + Y_one.rows()) = omega_one_two_inverse_inverse(row);// big_Omega(row + Y_one.rows(), row) = rho(0) + rho(1)*lambda(row);
+        big_Omega(row + Y_one.rows(), row + Y_one.rows()) = omega_two_two_inverse_inverse(row);// var_theta(2) + var_theta(3)*lambda(row);
+    }
+    big_Omega_inverse = big_Omega;
+    var_theta = (var_aux.transpose()*big_Omega_inverse*var_aux).inverse()*var_aux.transpose()*big_Omega_inverse*all_residual_squared;  
+    covar_theta(0) = sqrt(var_theta(0)*var_theta(2));
+    covar_theta(1) = sqrt(var_theta(1)*var_theta(3));   
+    covar_omega = (aux*covar_theta).cwiseInverse().cwiseAbs2().asDiagonal();   
+    rho = (aux.transpose()*covar_omega*aux).inverse()*aux.transpose()*covar_omega*covar_residual;
+    //theta = (other_aux.transpose()*other_aux).inverse()*other_aux.transpose()*all_residual_squared;
+     h2r_one = var_theta(1)/(var_theta(1) + var_theta(0));
+     h2r_two = var_theta(3)/(var_theta(3) + var_theta(2));
+     rhog = rho(1)/sqrt(var_theta(1)*var_theta(3));
+     rhoe = rho(0)/sqrt(var_theta(0)*var_theta(2));
+    cout << "h2r_one: "  << h2r_one << endl;
+    cout << "h2r_two: "  << h2r_two << endl;
+    cout << "rhog: "  << rhog << endl;
+    cout << "rhoe: "  << rhoe << endl;
+
+   
+
+
+}
+
 static void calculate_parameters_fast(Eigen::VectorXd Y_one, Eigen::VectorXd Y_two, Eigen::MatrixXd covariate_matrix, Eigen::VectorXd lambda, Eigen::VectorXd & parameters, Eigen::VectorXd & beta, Eigen::VectorXd & T_wald){
 
 
@@ -916,6 +1074,7 @@ static double calculate_bivariate_model_fast(Eigen::VectorXd trait_one, Eigen::V
                                         Eigen::VectorXd eigenvalues, Eigen::VectorXd & final_parameters, Eigen::VectorXd & T_wald){
     Eigen::VectorXd beta(covariate_matrix.cols()*2);
     Eigen::VectorXd parameters(6);
+  //  calculate_parameters_fast_two(trait_one,trait_two, covariate_matrix, eigenvalues, parameters, beta, T_wald);
     calculate_parameters_fast(trait_one,trait_two, covariate_matrix, eigenvalues, parameters, beta, T_wald);
     final_parameters = combine_parameters_and_beta(parameters, beta);
     display_totals = 1;

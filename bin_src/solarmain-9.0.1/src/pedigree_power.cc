@@ -1,13 +1,18 @@
 #include "solar.h"
 #include "Eigen/Dense"
 #include <iostream>
+#include <vector>
 #include <iomanip>
+#include <fstream>
+#include <string>
+#include <iterator>
+#include <algorithm>
 using namespace std;
 extern bool loadedPed ();
 extern Pedigree *currentPed;
 
 extern "C" void symeig_ (int*, double*, double*, double*, double*, int*);
-static void calculate_eigenvectors_and_eigenvalues (double * phi2, double * eigenvectors,double * eigenvalues, int n)
+static void calculate_eigenvectors_and_eigenvalues_two (double * phi2, double * eigenvectors,double * eigenvalues, int n)
 {
 
     double* e =  new double[n];
@@ -15,15 +20,63 @@ static void calculate_eigenvectors_and_eigenvalues (double * phi2, double * eige
     int * info = new int;
     *info  = 0;
     symeig_(&n, phi2, eigenvalues, e, eigenvectors, info);
-    delete [] e;
-    delete [] info;
+    //delete [] e;
+    delete  info;
 }
 
 static inline double function_g(const double h2, const double geo_mean){
     return 1.0 + h2*(geo_mean - 1.0);
 }
 
-static const char  * pedigree_power(Tcl_Interp * interp, const double null_h2r){
+static const char  * pedigree_power(Tcl_Interp * interp, const double null_h2r, const char * id_list_filename = 0){
+    vector<int> ibdids;
+    int highest_ibdid;
+    const char * errmsg = 0;
+    if(id_list_filename){
+        
+        ifstream ids_in(id_list_filename);
+        if(ids_in.is_open() == false)
+            return "Failed to open ID list file";
+        vector<string> initial_id_list;
+        string id;
+        while(ids_in >> id){
+            initial_id_list.push_back(id);
+        }
+        ids_in.close();
+        vector<string> id_list;
+        SolarFile * ped_file = SolarFile::open("pedigree power", "pedindex.out", &errmsg);
+        if(errmsg){
+            return errmsg;
+        }
+        ped_file->start_setup(&errmsg);
+        if(errmsg){
+            return errmsg;
+        }
+        ped_file->setup("id", &errmsg);
+        if(errmsg){
+            return errmsg;
+        }
+        int ibdid = 1;
+        char ** file_data;
+        while (0 != (file_data = ped_file->get (&errmsg))){
+            string ped_id = string(file_data[0]);
+            vector<string>::iterator id_iter = find(initial_id_list.begin(), initial_id_list.end(), ped_id);
+            if(id_iter != initial_id_list.end()){
+                id_list.push_back(ped_id);
+                ibdids.push_back(ibdid);
+                initial_id_list.erase(id_iter);
+            }
+            ibdid++;
+        }
+
+        if(initial_id_list.size() != 0){
+            cout << "The following IDs were not found in the pedigree:\n";
+            for(int i = 0; i < initial_id_list.size(); i++){
+                cout << initial_id_list[i] << endl;         
+            }
+        }        
+
+    }
     Matrix * static_phi2 = 0;
     static_phi2 = Matrix::find("phi2");
     if (!static_phi2) {
@@ -32,25 +85,50 @@ static const char  * pedigree_power(Tcl_Interp * interp, const double null_h2r){
         if(!static_phi2){
             return "Phi2 matrix could not be loaded";
         }
+    }else{
+        SolarFile * ped_file = SolarFile::open("pedigree power", "pedindex.out", &errmsg);
+        if(errmsg){
+            return errmsg;
+        }
+        ped_file->start_setup(&errmsg);
+        if(errmsg){
+            return errmsg;
+        }
+        ped_file->setup("id", &errmsg);
+        if(errmsg){
+            return errmsg;
+        }
+        int ibdid = 1;
+        char ** file_data;
+        while (0 != (file_data = ped_file->get (&errmsg))){
+            string ped_id = string(file_data[0]);
+            ibdid++;
+        }
+        highest_ibdid = ibdid;        
     }
-    const int highest_ibdid = Matrix::Pedindex_Highest_Ibdid;
+    highest_ibdid = (ibdids.size() == 0) ? ibdids.size() : highest_ibdid;
     double * phi2_matrix = new double[highest_ibdid*highest_ibdid];
     
     for(int col = 0; col < highest_ibdid; col++){
         for (int row = col; row < highest_ibdid; row++){
             double phi2_value;
             try{
-                phi2_value = static_phi2->get(col + 1, row+1);
+                phi2_value = (ibdids.size() == 0) ?  static_phi2->get(col + 1, row+1) : static_phi2->get(ibdids[col], ibdids[row]) ;
             }catch(...){
-                string error = "Failed to load phi2 value with ibdids " + to_string(col+1) + " col " + to_string(row+1)  + " row";
-                return error.c_str();
+                string error_str;
+                if(ibdids.size() == 0)
+                     error_str = "Failed to load phi2 value with ibdids " + to_string(col+1) + " col " + to_string(row+1)  + " row";
+                else
+                     error_str = "Failed to load phi2 value with ibdids " + to_string(ibdids[col]) + " col " + to_string(ibdids[row])  + " row";
+                return error_str.c_str();
             }
             phi2_matrix[col*highest_ibdid + row] = phi2_matrix[row*highest_ibdid + col] = phi2_value;
+
         }
    }
    double * temp_eigenvectors = new double[highest_ibdid*highest_ibdid];
    double * temp_eigenvalues = new double[highest_ibdid];
-   calculate_eigenvectors_and_eigenvalues (phi2_matrix, temp_eigenvectors, temp_eigenvalues, highest_ibdid);
+   calculate_eigenvectors_and_eigenvalues_two (phi2_matrix, temp_eigenvectors, temp_eigenvalues, highest_ibdid);
    delete [] phi2_matrix;
    Eigen::VectorXd eigenvalues = Eigen::Map<Eigen::VectorXd>(temp_eigenvalues, highest_ibdid);
    Eigen::VectorXd demeaned_eigenvalues = (eigenvalues.array() - 1).matrix();
@@ -95,8 +173,8 @@ static const char  * pedigree_power(Tcl_Interp * interp, const double null_h2r){
         cout << setw(6) << h2r << setw(8) << elrt << endl;
    }*/
       
-   delete [] temp_eigenvectors;
-   delete [] temp_eigenvalues;    
+   //delete [] temp_eigenvectors;
+   //delete [] temp_eigenvalues;    
      
    return 0;
 }    
@@ -105,33 +183,33 @@ static const char  * pedigree_power(Tcl_Interp * interp, const double null_h2r){
 extern "C" int pedigree_power_command(ClientData clientData, Tcl_Interp * interp,
                           int argc, const char * argv[]){
      double null_h2r = 0.0;
-     
+     const char * id_list_filename = 0;
      for(int arg = 1; arg < argc; arg++){
         if((!StringCmp(argv[arg], "--null", case_ins) || !StringCmp(argv[arg], "-null", case_ins) || !StringCmp(argv[arg], "--n", case_ins)
            || !StringCmp(argv[arg], "-n", case_ins)) && arg + 1 < argc){
            null_h2r = atof(argv[++arg]);
            if (null_h2r < 0.0 || null_h2r > 1.0){
                 RESULT_LIT("Null h2r must be greater than or equal to 0.0 or less than or equal to 1.0");
-                return TCL_ERROR;
+                return 1;
            }
+        }else if((!StringCmp(argv[arg], "--id_list", case_ins) || !StringCmp(argv[arg], "-id_list", case_ins)) && arg + 1 < argc){
+           id_list_filename = argv[++arg];
         }else{
             RESULT_LIT("Invalid argument enter see help");
-            return TCL_ERROR;
+            return 1;
         }
      }
                            
-                            
     if(!loadedPed()){
         RESULT_LIT("No pedigree has been loaded");
-        return TCL_ERROR;
+        return 1;
     }
-    const char * error = pedigree_power(interp, null_h2r);
+    const char * error = pedigree_power(interp, null_h2r, id_list_filename);
     if (error){
         RESULT_LIT(error);
-        return TCL_ERROR;
+        return 1;
     }
-    
-    return TCL_OK;
+    return 0;
     
 }
     
