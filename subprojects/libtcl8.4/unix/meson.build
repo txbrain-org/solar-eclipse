@@ -23,12 +23,12 @@ p = mod.add_project('configure',
 tcl_dep = p.dependency('libtcl8.4')
 meson.override_dependency('libtcl8.4', tcl_dep)
 
-#libtcl8.4= static_library(
-#  'tcl8.4',
-#  'safelib.c',
-#  include_directories: inc
-#)
+libtcl= static_library(
+  'tcl8.4',
+  #include_directories: inc
+)
 
 #$SCRIPT_PATH/unix/configure  --enable-threads  --prefix=$INSTALL_PREFIX
 #make -C $SCRIPT_PATH/unix all 
 #make -C $SCRIPT_PATH/unix install
+
