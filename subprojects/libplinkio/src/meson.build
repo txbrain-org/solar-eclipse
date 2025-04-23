@@ -1,19 +1,57 @@
-srcs = run_command('find', '.', '-name', '*.c', check: true).stdout().split('\n')
-srcs = ' '.join(srcs) # convert to string
-srcs = srcs.replace('./', '')
+c = run_command('find', '.', '-name', '*.c', check: true).stdout().split('\n')
+cs = []
+foreach i : c # convert to file array
+  if i != ''
+    cs += files(i)
+  endif
+endforeach
 
-inc = include_directories('../include')
+cpp = run_command('find', '.', '-name', '*.cpp', check: true).stdout().split('\n')
+cc = run_command('find', '.', '-name', '*.cc', check: true).stdout().split('\n')
+ccs = []
+cpps = []
+foreach i : cpp
+  if i != ''
+    cpps += files(i)
+  endif
+endforeach
+foreach i : cc
+  if i != ''
+    ccs += files(i)
+  endif
+endforeach
 
-#hdrs = run_command('find', '.', '-name', '*.h').stdout().split('\n')
-#hdrs = ' '.join(hdrs) # convert to string
-#hdrs = hdrs.replace('./', '')
+h = run_command('find', '.', '-name', '*.h', check: true).stdout().split('\n')
 
-#message('hdrs: ' + ' ' .join(hdrs))
-message('srcs: ' + ' ' .join(srcs))
-message('cwd: ' + meson.current_source_dir())
+# set the include directory
+fs = import('fs')
+if fs.is_dir(meson.current_source_dir() + '/../include')
+  message('include directory found')
+  inc = include_directories('../include')
+  inc_str = '../include'
+else
+  message('include directory not found')
+  inc = include_directories('../src')
+  inc_str = '../src'
+endif
 
-libplinkio= static_library(
+sdict = {
+  'srcdir' : meson.current_source_dir(),
+  'builddir' : meson.current_build_dir(),
+  'c' : c,  # lists of files cannot be passed to summary, so use string
+  'h' : h,
+  'cpp' : cpp,
+  'include_directory' : inc_str
+}
+summary(sdict)
+
+libplinkio = static_library(
   'plinkio',
-  'plinkio.c',
-  include_directories: inc
+  cs,
+  cpps,
+  ccs,
+  include_directories: inc,
+  #include_directories: '../include',
 )
+
+meson.override_dependency('libplinkio', declare_dependency(link_with: libplinkio))

@@ -15,3 +15,10 @@ meson setup builddir
 ```
 
 Use `just -l` to see recipes.
+
+## meson
+
+- <https://github.com/txbrain-org/solar-eclipse/tree/subprojects>
+- <https://mesonbuild.com/Subprojects.html>
+- <https://mesonbuild.com/External-Project-module.html#externalproject-object>
+- <https://mesonbuild.com/Reference-manual_functions.html#static_library>

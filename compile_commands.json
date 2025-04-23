@@ -1,0 +1,56 @@
+[
+  {
+    "directory": "/home/wburroughs/Work/nGit/projects/solar_build_test/solar/builddir",
+    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/bed.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/bed.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/bed.c.o -c ../subprojects/libplinkio/src/bed.c",
+    "file": "../subprojects/libplinkio/src/bed.c",
+    "output": "subprojects/libplinkio/src/libplinkio.a.p/bed.c.o"
+  },
+  {
+    "directory": "/home/wburroughs/Work/nGit/projects/solar_build_test/solar/builddir",
+    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/bim_parse.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/bim_parse.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/bim_parse.c.o -c ../subprojects/libplinkio/src/bim_parse.c",
+    "file": "../subprojects/libplinkio/src/bim_parse.c",
+    "output": "subprojects/libplinkio/src/libplinkio.a.p/bim_parse.c.o"
+  },
+  {
+    "directory": "/home/wburroughs/Work/nGit/projects/solar_build_test/solar/builddir",
+    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/bed_header.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/bed_header.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/bed_header.c.o -c ../subprojects/libplinkio/src/bed_header.c",
+    "file": "../subprojects/libplinkio/src/bed_header.c",
+    "output": "subprojects/libplinkio/src/libplinkio.a.p/bed_header.c.o"
+  },
+  {
+    "directory": "/home/wburroughs/Work/nGit/projects/solar_build_test/solar/builddir",
+    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/plinkio.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/plinkio.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/plinkio.c.o -c ../subprojects/libplinkio/src/plinkio.c",
+    "file": "../subprojects/libplinkio/src/plinkio.c",
+    "output": "subprojects/libplinkio/src/libplinkio.a.p/plinkio.c.o"
+  },
+  {
+    "directory": "/home/wburroughs/Work/nGit/projects/solar_build_test/solar/builddir",
+    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/fam.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/fam.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/fam.c.o -c ../subprojects/libplinkio/src/fam.c",
+    "file": "../subprojects/libplinkio/src/fam.c",
+    "output": "subprojects/libplinkio/src/libplinkio.a.p/fam.c.o"
+  },
+  {
+    "directory": "/home/wburroughs/Work/nGit/projects/solar_build_test/solar/builddir",
+    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/libcsv.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/libcsv.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/libcsv.c.o -c ../subprojects/libplinkio/src/libcsv.c",
+    "file": "../subprojects/libplinkio/src/libcsv.c",
+    "output": "subprojects/libplinkio/src/libplinkio.a.p/libcsv.c.o"
+  },
+  {
+    "directory": "/home/wburroughs/Work/nGit/projects/solar_build_test/solar/builddir",
+    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/bim.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/bim.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/bim.c.o -c ../subprojects/libplinkio/src/bim.c",
+    "file": "../subprojects/libplinkio/src/bim.c",
+    "output": "subprojects/libplinkio/src/libplinkio.a.p/bim.c.o"
+  },
+  {
+    "directory": "/home/wburroughs/Work/nGit/projects/solar_build_test/solar/builddir",
+    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/fam_parse.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/fam_parse.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/fam_parse.c.o -c ../subprojects/libplinkio/src/fam_parse.c",
+    "file": "../subprojects/libplinkio/src/fam_parse.c",
+    "output": "subprojects/libplinkio/src/libplinkio.a.p/fam_parse.c.o"
+  },
+  {
+    "directory": "/home/wburroughs/Work/nGit/projects/solar_build_test/solar/builddir",
+    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/file.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/file.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/file.c.o -c ../subprojects/libplinkio/src/file.c",
+    "file": "../subprojects/libplinkio/src/file.c",
+    "output": "subprojects/libplinkio/src/libplinkio.a.p/file.c.o"
+  }
+]

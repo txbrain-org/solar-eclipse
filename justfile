@@ -21,25 +21,32 @@ prefix := '/usr/local'
 builddir := 'builddir'
 srcdir := 'src'
 target := 'solarmain'
+cmp_cmds_json := builddir + '/compile_commands.json'
 
-# clean [all]
-clean param:
-  if [[ {{param}} == 'all' ]]; then \
-    meson compile -C {{builddir}} --clean; \
-    meson setup --wipe {{builddir}}; \
-  else \
-    meson compile -C {{builddir}} --clean; \
-  fi 
+
+setup:
+  @if [[ ! -d {{builddir}} ]]; then \
+    meson setup {{builddir}}; \
+    printf "%s\n"; \
+  fi
+
+# meson compile -C builddir --clean
+clean:
+  @rm -rf {{builddir}} > /dev/null
 
 # meson compile -C builddir
-build:
-  meson compile -C {{builddir}}
+build: setup
+  @meson compile -C {{builddir}} && cp {{cmp_cmds_json}} .
   @printf "%s\n"
 
-# execute target
-run:
+# meson compile -v -C builddir
+build-verbose: setup
+  @meson compile -v -C {{builddir}} && cp {{cmp_cmds_json}} .
+  @printf "%s\n"
+
+run: build
   ./{{builddir}}/{{srcdir}}/{{target}}
   @printf "%s\n"
 
 # meson build && meson run
-test: (clean "all") build run
+test: clean build run
