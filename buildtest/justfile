@@ -1,0 +1,9 @@
+set shell := ["bash", "-c"]
+
+builddir := "../builddir"
+subprojects := builddir + "/subprojects"
+srcdir := "../src"
+
+setup:
+  cp -r {{srcdir}} .
+  cp -r {{subprojects}} .

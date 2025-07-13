@@ -41,14 +41,8 @@ static  double calculate_fphi_loglik(double variance, Eigen::VectorXd Sigma,  si
 static double calculate_pvalue(Eigen::VectorXd residual,  double  loglik, double & null_loglik){
 
     double null_variance = residual.squaredNorm()/residual.rows();
-    
-    
-    
     null_loglik = calculate_fphi_loglik(null_variance, Eigen::ArrayXd::Ones(residual.rows()).matrix(), residual.rows());
-    
-    
     return chicdf(2.0*(loglik - null_loglik), 1);
-    
 }
 
 static Eigen::VectorXd compute_Score(double SD, Eigen::VectorXd residual,Eigen::VectorXd one_minus_lambda, Eigen::MatrixXd SX, Eigen::VectorXd omega_diagonal){
