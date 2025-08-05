@@ -58,7 +58,11 @@ libsafe = static_library(
   cpps,
   ccs,
   include_directories: inc,
-  #include_directories: include_directories('../include'),
 )
 
-meson.override_dependency('libsafe', declare_dependency(link_with: libsafe))
+libsafe_dep = declare_dependency(
+  link_with: libsafe,
+  include_directories: inc,
+)
+
+libsafe_dep

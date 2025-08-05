@@ -14,7 +14,6 @@
 #include <stdlib.h>
 #include "solar.h"
 
-
 class EVD
 {
 public:

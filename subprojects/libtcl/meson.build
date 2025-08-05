@@ -10,10 +10,10 @@ prefix = meson.current_build_dir() + '/installdir/usr/local'
 srcdir = meson.current_source_dir()
 #message('srcdir=' + srcdir)
 
-rc = run_command('bash', '-c',
+cp_tcl_srcs = run_command('bash', '-c',
   'cp -r ' + srcdir + '/*' + ' ' + builddir + '/',
   capture: true, check: true)
-message(rc.stdout())
+message(cp_tcl_srcs.stdout())
 
 autoconf_tgt = custom_target(
   output: 'configure',
@@ -60,41 +60,9 @@ make_install_tgt = custom_target(
   build_by_default: true,
 )
 
-cp_installdir_tgt = custom_target(
-  output: 'cp_installdir_tgt',
-  command: ['cp', '-r', builddir + '/installdir', srcdir + '/../../src/solarmain'],
-  depends: make_install_tgt,
-)
-
-cp_libtcl_so_tgt = custom_target(
-  output: 'cp_libtcl_so_tgt',
-  command: ['cp', '-r', builddir + '/installdir/usr/local/lib/libtcl8.4.so', builddir],
-  depends: make_install_tgt,
-)
-
-cp_libtcl_a_tgt = custom_target(
-  output: 'cp_libtcl_a_tgt',
-  command: ['cp', '-r', builddir + '/installdir/usr/local/lib/libtclstub8.4.a', builddir],
-  depends: make_install_tgt,
-)
-
-#mv_installdir_tgt = custom_target(
-#  output: 'mv_installdir_tgt',
-#  command: [ 'mv', builddir + '/../../src/solarmain/installdir', builddir + '/../../src/solarmain/libtcl' ],
-#  depends: cp_installdir_tgt,
-#)
-
-# subprojects/libtcl/meson.build:68:0: ERROR: Sandbox violation: Tried to grab file libtcl8.4.so outside current (sub)project.
 libtcl = declare_dependency(
-  #sources: [ make_install_tgt, cp_installdir_tgt ],
-  sources: [ make_install_tgt, cp_libtcl_so_tgt, cp_libtcl_a_tgt ],
+  compile_args: ['-I' + meson.current_build_dir() / 'installdir/usr/local/include'],
+  link_args: ['-L' + meson.current_build_dir() / 'installdir/usr/local/lib', '-ltcl8.4']
 )
 
 meson.override_dependency('libtcl', libtcl)
-
-#tgt_make_test = custom_target(
-#  output: 'make_test',
-#  command: ['make', '-C', builddir + '/unix', 'test'],
-#  depends: tgt_make_install,
-#  build_by_default: true,
-#)

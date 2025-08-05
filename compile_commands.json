@@ -1,171 +1,171 @@
 [
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/inflate.c.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/inflate.c.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/inflate.c.o -c ../subprojects/libRicVolume/src/inflate.c",
+    "command": "cc -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_inflate.c.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_inflate.c.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_inflate.c.o -c ../subprojects/libRicVolume/src/inflate.c",
     "file": "../subprojects/libRicVolume/src/inflate.c",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/inflate.c.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_inflate.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/inftrees.c.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/inftrees.c.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/inftrees.c.o -c ../subprojects/libRicVolume/src/inftrees.c",
+    "command": "cc -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_inftrees.c.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_inftrees.c.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_inftrees.c.o -c ../subprojects/libRicVolume/src/inftrees.c",
     "file": "../subprojects/libRicVolume/src/inftrees.c",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/inftrees.c.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_inftrees.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/deflate.c.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/deflate.c.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/deflate.c.o -c ../subprojects/libRicVolume/src/deflate.c",
+    "command": "cc -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_deflate.c.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_deflate.c.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_deflate.c.o -c ../subprojects/libRicVolume/src/deflate.c",
     "file": "../subprojects/libRicVolume/src/deflate.c",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/deflate.c.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_deflate.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/trees.c.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/trees.c.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/trees.c.o -c ../subprojects/libRicVolume/src/trees.c",
+    "command": "cc -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_trees.c.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_trees.c.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_trees.c.o -c ../subprojects/libRicVolume/src/trees.c",
     "file": "../subprojects/libRicVolume/src/trees.c",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/trees.c.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_trees.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/crc32.c.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/crc32.c.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/crc32.c.o -c ../subprojects/libRicVolume/src/crc32.c",
+    "command": "cc -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_crc32.c.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_crc32.c.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_crc32.c.o -c ../subprojects/libRicVolume/src/crc32.c",
     "file": "../subprojects/libRicVolume/src/crc32.c",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/crc32.c.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_crc32.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/uncompr.c.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/uncompr.c.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/uncompr.c.o -c ../subprojects/libRicVolume/src/uncompr.c",
+    "command": "cc -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_uncompr.c.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_uncompr.c.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_uncompr.c.o -c ../subprojects/libRicVolume/src/uncompr.c",
     "file": "../subprojects/libRicVolume/src/uncompr.c",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/uncompr.c.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_uncompr.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/zutil.c.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/zutil.c.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/zutil.c.o -c ../subprojects/libRicVolume/src/zutil.c",
+    "command": "cc -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_zutil.c.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_zutil.c.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_zutil.c.o -c ../subprojects/libRicVolume/src/zutil.c",
     "file": "../subprojects/libRicVolume/src/zutil.c",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/zutil.c.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_zutil.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/nifti1_io.c.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/nifti1_io.c.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/nifti1_io.c.o -c ../subprojects/libRicVolume/src/nifti1_io.c",
+    "command": "cc -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_nifti1_io.c.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_nifti1_io.c.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_nifti1_io.c.o -c ../subprojects/libRicVolume/src/nifti1_io.c",
     "file": "../subprojects/libRicVolume/src/nifti1_io.c",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/nifti1_io.c.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_nifti1_io.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/znzlib.c.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/znzlib.c.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/znzlib.c.o -c ../subprojects/libRicVolume/src/znzlib.c",
+    "command": "cc -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_znzlib.c.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_znzlib.c.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_znzlib.c.o -c ../subprojects/libRicVolume/src/znzlib.c",
     "file": "../subprojects/libRicVolume/src/znzlib.c",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/znzlib.c.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_znzlib.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/compress.c.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/compress.c.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/compress.c.o -c ../subprojects/libRicVolume/src/compress.c",
+    "command": "cc -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_compress.c.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_compress.c.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_compress.c.o -c ../subprojects/libRicVolume/src/compress.c",
     "file": "../subprojects/libRicVolume/src/compress.c",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/compress.c.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_compress.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/adler32.c.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/adler32.c.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/adler32.c.o -c ../subprojects/libRicVolume/src/adler32.c",
+    "command": "cc -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_adler32.c.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_adler32.c.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_adler32.c.o -c ../subprojects/libRicVolume/src/adler32.c",
     "file": "../subprojects/libRicVolume/src/adler32.c",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/adler32.c.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_adler32.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/gzio.c.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/gzio.c.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/gzio.c.o -c ../subprojects/libRicVolume/src/gzio.c",
+    "command": "cc -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_gzio.c.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_gzio.c.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_gzio.c.o -c ../subprojects/libRicVolume/src/gzio.c",
     "file": "../subprojects/libRicVolume/src/gzio.c",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/gzio.c.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_gzio.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/inffast.c.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/inffast.c.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/inffast.c.o -c ../subprojects/libRicVolume/src/inffast.c",
+    "command": "cc -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_inffast.c.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_inffast.c.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_inffast.c.o -c ../subprojects/libRicVolume/src/inffast.c",
     "file": "../subprojects/libRicVolume/src/inffast.c",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/inffast.c.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_inffast.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/infback.c.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/infback.c.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/infback.c.o -c ../subprojects/libRicVolume/src/infback.c",
+    "command": "cc -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_infback.c.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_infback.c.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_infback.c.o -c ../subprojects/libRicVolume/src/infback.c",
     "file": "../subprojects/libRicVolume/src/infback.c",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/infback.c.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_infback.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "c++ -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/RicVolumeSet.cpp.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/RicVolumeSet.cpp.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/RicVolumeSet.cpp.o -c ../subprojects/libRicVolume/src/RicVolumeSet.cpp",
+    "command": "c++ -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_RicVolumeSet.cpp.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_RicVolumeSet.cpp.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_RicVolumeSet.cpp.o -c ../subprojects/libRicVolume/src/RicVolumeSet.cpp",
     "file": "../subprojects/libRicVolume/src/RicVolumeSet.cpp",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/RicVolumeSet.cpp.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_RicVolumeSet.cpp.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "c++ -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/RicVolume.cpp.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/RicVolume.cpp.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/RicVolume.cpp.o -c ../subprojects/libRicVolume/src/RicVolume.cpp",
+    "command": "c++ -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_RicVolume.cpp.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_RicVolume.cpp.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_RicVolume.cpp.o -c ../subprojects/libRicVolume/src/RicVolume.cpp",
     "file": "../subprojects/libRicVolume/src/RicVolume.cpp",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/RicVolume.cpp.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_RicVolume.cpp.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "c++ -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/RicUtil.cpp.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/RicUtil.cpp.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/RicUtil.cpp.o -c ../subprojects/libRicVolume/src/RicUtil.cpp",
+    "command": "c++ -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_RicUtil.cpp.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_RicUtil.cpp.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_RicUtil.cpp.o -c ../subprojects/libRicVolume/src/RicUtil.cpp",
     "file": "../subprojects/libRicVolume/src/RicUtil.cpp",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/RicUtil.cpp.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_RicUtil.cpp.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "c++ -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/nemardr.cpp.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/nemardr.cpp.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/nemardr.cpp.o -c ../subprojects/libRicVolume/src/nemardr.cpp",
+    "command": "c++ -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_nemardr.cpp.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_nemardr.cpp.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_nemardr.cpp.o -c ../subprojects/libRicVolume/src/nemardr.cpp",
     "file": "../subprojects/libRicVolume/src/nemardr.cpp",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/nemardr.cpp.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_nemardr.cpp.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "c++ -Isubprojects/libRicVolume/src/libRicVolume.a.p -Isubprojects/libRicVolume/src -I../subprojects/libRicVolume/src -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -g -fPIC -MD -MQ subprojects/libRicVolume/src/libRicVolume.a.p/NiftiOrientConvert.cpp.o -MF subprojects/libRicVolume/src/libRicVolume.a.p/NiftiOrientConvert.cpp.o.d -o subprojects/libRicVolume/src/libRicVolume.a.p/NiftiOrientConvert.cpp.o -c ../subprojects/libRicVolume/src/NiftiOrientConvert.cpp",
+    "command": "c++ -Isubprojects/libRicVolume/libRicVolume.a.p -Isubprojects/libRicVolume -I../subprojects/libRicVolume -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -g -fPIC -MD -MQ subprojects/libRicVolume/libRicVolume.a.p/src_NiftiOrientConvert.cpp.o -MF subprojects/libRicVolume/libRicVolume.a.p/src_NiftiOrientConvert.cpp.o.d -o subprojects/libRicVolume/libRicVolume.a.p/src_NiftiOrientConvert.cpp.o -c ../subprojects/libRicVolume/src/NiftiOrientConvert.cpp",
     "file": "../subprojects/libRicVolume/src/NiftiOrientConvert.cpp",
-    "output": "subprojects/libRicVolume/src/libRicVolume.a.p/NiftiOrientConvert.cpp.o"
+    "output": "subprojects/libRicVolume/libRicVolume.a.p/src_NiftiOrientConvert.cpp.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/libcsv.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/libcsv.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/libcsv.c.o -c ../subprojects/libplinkio/src/libcsv.c",
+    "command": "cc -Isubprojects/libplinkio/libplinkio.a.p -Isubprojects/libplinkio -I../subprojects/libplinkio -I../subprojects/libplinkio/include -I../subprojects/libplinkio/include/plinkio -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/libplinkio.a.p/src_libcsv.c.o -MF subprojects/libplinkio/libplinkio.a.p/src_libcsv.c.o.d -o subprojects/libplinkio/libplinkio.a.p/src_libcsv.c.o -c ../subprojects/libplinkio/src/libcsv.c",
     "file": "../subprojects/libplinkio/src/libcsv.c",
-    "output": "subprojects/libplinkio/src/libplinkio.a.p/libcsv.c.o"
+    "output": "subprojects/libplinkio/libplinkio.a.p/src_libcsv.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/file.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/file.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/file.c.o -c ../subprojects/libplinkio/src/file.c",
+    "command": "cc -Isubprojects/libplinkio/libplinkio.a.p -Isubprojects/libplinkio -I../subprojects/libplinkio -I../subprojects/libplinkio/include -I../subprojects/libplinkio/include/plinkio -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/libplinkio.a.p/src_file.c.o -MF subprojects/libplinkio/libplinkio.a.p/src_file.c.o.d -o subprojects/libplinkio/libplinkio.a.p/src_file.c.o -c ../subprojects/libplinkio/src/file.c",
     "file": "../subprojects/libplinkio/src/file.c",
-    "output": "subprojects/libplinkio/src/libplinkio.a.p/file.c.o"
+    "output": "subprojects/libplinkio/libplinkio.a.p/src_file.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/bim.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/bim.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/bim.c.o -c ../subprojects/libplinkio/src/bim.c",
+    "command": "cc -Isubprojects/libplinkio/libplinkio.a.p -Isubprojects/libplinkio -I../subprojects/libplinkio -I../subprojects/libplinkio/include -I../subprojects/libplinkio/include/plinkio -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/libplinkio.a.p/src_bim.c.o -MF subprojects/libplinkio/libplinkio.a.p/src_bim.c.o.d -o subprojects/libplinkio/libplinkio.a.p/src_bim.c.o -c ../subprojects/libplinkio/src/bim.c",
     "file": "../subprojects/libplinkio/src/bim.c",
-    "output": "subprojects/libplinkio/src/libplinkio.a.p/bim.c.o"
+    "output": "subprojects/libplinkio/libplinkio.a.p/src_bim.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/plinkio.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/plinkio.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/plinkio.c.o -c ../subprojects/libplinkio/src/plinkio.c",
+    "command": "cc -Isubprojects/libplinkio/libplinkio.a.p -Isubprojects/libplinkio -I../subprojects/libplinkio -I../subprojects/libplinkio/include -I../subprojects/libplinkio/include/plinkio -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/libplinkio.a.p/src_plinkio.c.o -MF subprojects/libplinkio/libplinkio.a.p/src_plinkio.c.o.d -o subprojects/libplinkio/libplinkio.a.p/src_plinkio.c.o -c ../subprojects/libplinkio/src/plinkio.c",
     "file": "../subprojects/libplinkio/src/plinkio.c",
-    "output": "subprojects/libplinkio/src/libplinkio.a.p/plinkio.c.o"
+    "output": "subprojects/libplinkio/libplinkio.a.p/src_plinkio.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/bim_parse.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/bim_parse.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/bim_parse.c.o -c ../subprojects/libplinkio/src/bim_parse.c",
+    "command": "cc -Isubprojects/libplinkio/libplinkio.a.p -Isubprojects/libplinkio -I../subprojects/libplinkio -I../subprojects/libplinkio/include -I../subprojects/libplinkio/include/plinkio -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/libplinkio.a.p/src_bim_parse.c.o -MF subprojects/libplinkio/libplinkio.a.p/src_bim_parse.c.o.d -o subprojects/libplinkio/libplinkio.a.p/src_bim_parse.c.o -c ../subprojects/libplinkio/src/bim_parse.c",
     "file": "../subprojects/libplinkio/src/bim_parse.c",
-    "output": "subprojects/libplinkio/src/libplinkio.a.p/bim_parse.c.o"
+    "output": "subprojects/libplinkio/libplinkio.a.p/src_bim_parse.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/bed_header.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/bed_header.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/bed_header.c.o -c ../subprojects/libplinkio/src/bed_header.c",
+    "command": "cc -Isubprojects/libplinkio/libplinkio.a.p -Isubprojects/libplinkio -I../subprojects/libplinkio -I../subprojects/libplinkio/include -I../subprojects/libplinkio/include/plinkio -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/libplinkio.a.p/src_bed_header.c.o -MF subprojects/libplinkio/libplinkio.a.p/src_bed_header.c.o.d -o subprojects/libplinkio/libplinkio.a.p/src_bed_header.c.o -c ../subprojects/libplinkio/src/bed_header.c",
     "file": "../subprojects/libplinkio/src/bed_header.c",
-    "output": "subprojects/libplinkio/src/libplinkio.a.p/bed_header.c.o"
+    "output": "subprojects/libplinkio/libplinkio.a.p/src_bed_header.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/bed.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/bed.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/bed.c.o -c ../subprojects/libplinkio/src/bed.c",
+    "command": "cc -Isubprojects/libplinkio/libplinkio.a.p -Isubprojects/libplinkio -I../subprojects/libplinkio -I../subprojects/libplinkio/include -I../subprojects/libplinkio/include/plinkio -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/libplinkio.a.p/src_bed.c.o -MF subprojects/libplinkio/libplinkio.a.p/src_bed.c.o.d -o subprojects/libplinkio/libplinkio.a.p/src_bed.c.o -c ../subprojects/libplinkio/src/bed.c",
     "file": "../subprojects/libplinkio/src/bed.c",
-    "output": "subprojects/libplinkio/src/libplinkio.a.p/bed.c.o"
+    "output": "subprojects/libplinkio/libplinkio.a.p/src_bed.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/fam.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/fam.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/fam.c.o -c ../subprojects/libplinkio/src/fam.c",
+    "command": "cc -Isubprojects/libplinkio/libplinkio.a.p -Isubprojects/libplinkio -I../subprojects/libplinkio -I../subprojects/libplinkio/include -I../subprojects/libplinkio/include/plinkio -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/libplinkio.a.p/src_fam.c.o -MF subprojects/libplinkio/libplinkio.a.p/src_fam.c.o.d -o subprojects/libplinkio/libplinkio.a.p/src_fam.c.o -c ../subprojects/libplinkio/src/fam.c",
     "file": "../subprojects/libplinkio/src/fam.c",
-    "output": "subprojects/libplinkio/src/libplinkio.a.p/fam.c.o"
+    "output": "subprojects/libplinkio/libplinkio.a.p/src_fam.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
-    "command": "cc -Isubprojects/libplinkio/src/libplinkio.a.p -Isubprojects/libplinkio/src -I../subprojects/libplinkio/src -I../subprojects/libplinkio/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/src/libplinkio.a.p/fam_parse.c.o -MF subprojects/libplinkio/src/libplinkio.a.p/fam_parse.c.o.d -o subprojects/libplinkio/src/libplinkio.a.p/fam_parse.c.o -c ../subprojects/libplinkio/src/fam_parse.c",
+    "command": "cc -Isubprojects/libplinkio/libplinkio.a.p -Isubprojects/libplinkio -I../subprojects/libplinkio -I../subprojects/libplinkio/include -I../subprojects/libplinkio/include/plinkio -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -fPIC -MD -MQ subprojects/libplinkio/libplinkio.a.p/src_fam_parse.c.o -MF subprojects/libplinkio/libplinkio.a.p/src_fam_parse.c.o.d -o subprojects/libplinkio/libplinkio.a.p/src_fam_parse.c.o -c ../subprojects/libplinkio/src/fam_parse.c",
     "file": "../subprojects/libplinkio/src/fam_parse.c",
-    "output": "subprojects/libplinkio/src/libplinkio.a.p/fam_parse.c.o"
+    "output": "subprojects/libplinkio/libplinkio.a.p/src_fam_parse.c.o"
   },
   {
     "directory": "/home/wb/Work/nGit/projects/solar-flavors/solar_build_test/solar/builddir",
